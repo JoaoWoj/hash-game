@@ -60,17 +60,17 @@ const hash_game = {
             if (count == 3) {
                 var person = symbol;
                 alert('Parabéns ' + person + '!!! você ganhou!!!');
-                restart();
+                location.reload();
             }
         });
     },
 
     end_game() {
         alert('O jogo acabou em empate! Ninguém ganhou!!!');
-        restart();
+        location.reload();
     },
-
-    restart() {
+	
+	 restart() {
         this.table.fill('');
         this.create_table();
         this.gameover = false;
