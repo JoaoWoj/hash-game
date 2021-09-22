@@ -42,6 +42,10 @@ const hash_game = {
             this.create_table();
             this.check(this.symbol.player[this.symbol.turn]);
             let count = 0;
+            if(this.gameover === true){
+                location.reload();
+                return true;
+            }
             this.table.forEach(function(i) {
                 if(i === 'X' || i === 'O'){
                     count++;
@@ -59,7 +63,8 @@ const hash_game = {
     },
 
     check(symbol) {
-       this.matrix.forEach(function(x) {
+        for (var i = 0; i <  this.matrix.length; ++i) {
+            var x =  this.matrix[i];
             var count = 0;
             x.forEach(function(y) {
                 var position = document.querySelector('.game').children[y];
@@ -69,9 +74,10 @@ const hash_game = {
             if (count == 3) {
                 var person = symbol;
                 alert('Parabéns ' + person + '!!! você ganhou!!!');
-                location.reload();
+                this.gameover = true;
+                break;
             }
-        });
+        };
     },
 
     end_game() {
