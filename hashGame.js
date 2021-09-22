@@ -24,6 +24,15 @@ const hash_game = {
 
     init(container) {
         this.container_element = container;
+        this.container_element.style.width = "600px";
+        this.container_element.style.height = "600px";
+        this.container_element.style.margin = "0 auto";
+        this.container_element.style.backgroundColor = "#2b2b2b";
+        this.container_element.style.color = "#fff";
+        this.container_element.style.order = "6px solid #2c3e50";
+        this.container_element.style.borderradius = "10px";
+        this.container_element.style.display = "grid";
+        this.container_element.style.gridTemplate = "repeat(3, 1fr) / repeat(3, 1fr)";
     },
 
     start(posicao) {
@@ -84,5 +93,16 @@ const hash_game = {
         };
 
         this.container_element.innerHTML = content;
+        this.container_element.childNodes.forEach(function(x) {
+            x.style.border = "6px solid #2c3e50";
+            x.style.borderRadius = "2px";
+            x.style.fontFamily = "Helvetica";
+            x.style.fontWeight = "bold";
+            x.style.fontSize = "4em";
+            x.style.display= "flex";
+            x.style.justifyContent = "center";
+            x.style.alignItems = "center";
+        });
     },
+
 };
